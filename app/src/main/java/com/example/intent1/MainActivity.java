@@ -14,8 +14,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button btn1,btn2,btn3,btn4,btn5,btn6,btn7;
     EditText et;
-    public static double sum;
+    double sum;
     int siman;
+    double last;
 
 
 
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             String s = Double.toString(sum);
             et.setText(s);
             siman = 0;
+            last = sum;
         }
         else{
             Toast.makeText(this, "Wrong input,try again!", Toast.LENGTH_SHORT).show();
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void credits(View view) {
         Intent si = new Intent(this,intent2.class);
-        si.putExtra("dorel",sum);
+        si.putExtra("dorel",last);
         startActivity(si);
 
     }
